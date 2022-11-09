@@ -53,6 +53,25 @@ public class ShowCollection {
             throw new RuntimeException(e);
         }
     }
+
+    public void readFromFile(Path path){
+        if (!(Files.exists(path))){
+            System.err.println("Error: Unable to read from file as it does not exist.\nEnsure it is saved in the same directory and titled 'all-weeks-global'.");
+            System.exit(-1);
+        }
+
+        try {
+            List<String> read = Files.readAllLines(path);
+
+            read.stream()
+                    .skip(1)
+                    .map(s -> s.split("\t"))
+                    .forEach(this::add);
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
     private void add(String[] show){
         String wk = show[0];
         String cat = show[1];

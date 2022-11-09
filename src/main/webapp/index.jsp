@@ -17,7 +17,7 @@
     </style>
     <body>
         <h2>Hello, please sign in:</h2>
-        <form method="POST" action="netflix-servlet">
+        <form method="POST" action="${pageContext.request.contextPath}/login">
             <label for="username">Username</label>
                 <input type="text" id="username" name="username">
             <br>

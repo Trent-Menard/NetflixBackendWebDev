@@ -40,7 +40,6 @@ public class ShowSelectionServlet extends HttpServlet {
             ResultSet resultSet = statement.executeQuery(queryPrep);
 
             while (resultSet.next()) {
-
                 sb.append("<p> Category: ").append(resultSet.getString("CATEGORY")).append("</p>");
                 sb.append("<p> Weekly Rank: ").append(resultSet.getString("WEEKLY_RANK")).append("</p>");
                 sb.append("<p> Show Title: ").append(resultSet.getString("SHOW_TITLE")).append("</p>");
@@ -53,6 +52,7 @@ public class ShowSelectionServlet extends HttpServlet {
 
         req.getSession().setAttribute("showSelectedMsg", sb.toString());
 
-        req.getRequestDispatcher("/Home3.jsp").forward(req, resp);
+        req.getSession().setAttribute("showSelectedMsg", sb.toString());
+        req.getRequestDispatcher("/ShowResults.jsp").forward(req, resp);
     }
 }

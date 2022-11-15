@@ -54,7 +54,6 @@ public class LoginServlet extends HttpServlet {
             }
             else
                 resp.sendError(401, "User doesn't exist or incorrect password.");
-
         }
     }
 }

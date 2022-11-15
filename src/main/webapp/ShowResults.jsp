@@ -9,10 +9,12 @@
         body{font-family: "Poppins", serif;}
     </style>
     <body>
-        <%
-            String showSelectedMsg=request.getSession().getAttribute("showSelectedMsg").toString();
-        %>
+
+    <%
+        String showSelectedMsg=request.getSession().getAttribute("showSelectedMsg").toString();
+    %>
 
     <%=showSelectedMsg%>
+
     </body>
 </html>

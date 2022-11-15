@@ -17,14 +17,13 @@ public class NetflixDBConnection {
         OracleDataSource ods;
 
         Properties info = new Properties();
-//        info.put(OracleConnection.CONNECTION_PROPERTY_USER_NAME, "SYSTEM");
-//        info.put(OracleConnection.CONNECTION_PROPERTY_PASSWORD, "SYSTEMPASSWORD");
+        info.put(OracleConnection.CONNECTION_PROPERTY_USER_NAME, "SYSTEM");
+        info.put(OracleConnection.CONNECTION_PROPERTY_PASSWORD, "SYSTEMPASSWORD");
         info.put(OracleConnection.CONNECTION_PROPERTY_DEFAULT_ROW_PREFETCH, "50");
 
         try {
             ods = new OracleDataSource();
-//            ods.setURL("jdbc:oracle:thin:@localhost:1522/XE");
-            ods.setURL("jdbc:oracle:thin:@SYSTEM/SYSTEMPASSWORD@localhost:1522/XE");
+            ods.setURL("jdbc:oracle:thin:@localhost:1522/XE");
             ods.setConnectionProperties(info);
             OracleConnection connection = (OracleConnection) ods.getConnection();
 

@@ -13,22 +13,30 @@
         String username=request.getSession().getAttribute("username").toString();
     %>
 
-        <h2>Welcome back, <%=username%></h2>
-        <h3>Select a show to get started!</h3>
+    <h2>Welcome back, <%=username%></h2>
+    <h3>Select a show to get started!</h3>
 
-        <form method="POST" action="${pageContext.request.contextPath}/home">
-            <label for="allShows">Select a Show</label>
-                <input list="allShowsList" id="allShows" name="allShows">
-            <datalist id="allShowsList">
+    <form method="POST" action="${pageContext.request.contextPath}/home">
+        <label for="allShows">Select a Show</label>
+        <input list="allShowsList" id="allShows" name="allShows">
+        <datalist id="allShowsList">
 
-                <%
-                    String shows=request.getSession().getAttribute("shows").toString();
-                %>
+            <%
+                String shows=request.getSession().getAttribute("shows").toString();
+            %>
 
-                <%-- From build, add to HTML--%>
-                <%=shows%>
+            <%-- From build, add to HTML--%>
+            <%=shows%>
 
-            </datalist>
-            <button name="query" value="processQuery">Search</button>
-        </form>
+        </datalist>
+        <button name="query" value="processQuery">Search</button>
+    </form>
+
+    <br>
+    <br>
+    <br>
+
+    <form method="POST" action="AddShow.jsp">
+        <button name="addShow" value="processAddShow" type="submit">Add a Show</button>
+    </form>
 </html>
